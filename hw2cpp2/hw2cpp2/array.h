@@ -32,25 +32,50 @@ namespace nwacc
 			}
 
 		}
-
+		/**
+		* summary
+		*	deletes the array pointer.
+		*/
 		~array()
 		{
 			delete[] my_array;
 		}
 
+		/**
+		* summary
+		*	passes out the value of the upper index.
+		*	
+		*	
+		*	@returns int
+		*/
 		int get_upper_bound()
 		{
 			return Upper_index_bounds;
 		}
-
+		/**
+		* summary
+		*	passes out the value of the lowest index.
+		*
+		*
+		*	@returns int
+		*/
 		 int get_lower_bound()
 		{
 			return  lower_index_bounds;
 		}
 
+
+
+		/**
+		* summary
+		*	returns the value held at a given index in the array.
+		*
+		*	@param index
+		*
+		*	@returns T&
+		*/
 		T& operator[](int index)
 		{
-
 
 			if (index >= lower_index_bounds && index < Upper_index_bounds)
 			{
@@ -60,25 +85,9 @@ namespace nwacc
 				throw 10;
 			}
 		}
-		array<T, U, L>& operator=(const array<T, U, L>& x)
-		{
-			delete[] my_array;
-			my_array = new T[range];
-			my_array = x;
-			return *this;
-		}
 
-		
-		array<T, U, L>& operator=(T x)
-		{
-			delete[] my_array;
-			my_array = new T[range];
-			for (auto e = 0; e < range; e++)
-			{
-				my_array[e] = e;
-			}
-			return *this;
-		}
+	
+	
 	};
 
 }
